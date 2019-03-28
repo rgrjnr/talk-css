@@ -5,36 +5,38 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@font-face {
+  font-family: Proxima Nova;
+  src: url(proxima-nova-extrabold-italic.woff); }
+
 .reveal a {
   line-height: 1.3em; }
+
+@font-face {
+  font-family: Proxima Nova;
+  src: url(proxima-nova-extrabold-italic.woff); }
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #add9e4;
-  background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #add9e4));
-  background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background-color: #f7fbfc; }
+  background: white;
+  background-color: white; }
 
 .reveal {
-  font-family: "Open Sans", sans-serif;
-  font-size: 40px;
+  font-family: "Chivo", sans-serif;
+  font-size: 32px;
   font-weight: normal;
-  color: #333; }
+  color: #313131; }
 
 ::selection {
   color: #fff;
-  background: #134674;
+  background: #00F3BA;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: #134674;
+  background: #00F3BA;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -52,12 +54,12 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #333;
-  font-family: "Quicksand", sans-serif;
-  font-weight: normal;
+  color: #0000ED;
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: bold;
   line-height: 1.2;
-  letter-spacing: -0.08em;
-  text-transform: uppercase;
+  letter-spacing: normal;
+  text-transform: inherit;
   text-shadow: none;
   word-wrap: break-word; }
 
@@ -134,10 +136,9 @@ body {
   position: relative;
   width: 70%;
   margin: 20px auto;
-  padding: 5px;
+  padding: 25px;
   font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+  background: #00F3BA; }
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
@@ -149,14 +150,13 @@ body {
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
-  margin: 20px auto;
+  width: 100%;
+  margin: auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 0.5em;
   font-family: monospace;
   line-height: 1.2em;
-  word-wrap: break-word;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+  word-wrap: break-word; }
 
 .reveal code {
   font-family: monospace;
@@ -164,7 +164,7 @@ body {
 
 .reveal pre code {
   display: block;
-  padding: 5px;
+  padding: 15px;
   overflow: auto;
   max-height: 400px;
   word-wrap: normal; }
@@ -216,29 +216,26 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #3b759e;
+  color: #00F3BA;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #74a7cb;
+  color: #5affd8;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #264c66; }
+  background: #00a77f; }
 
 /*********************************************
  * IMAGES
  *********************************************/
 .reveal section img {
-  margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #333;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  margin: 15px 0px; }
 
 .reveal section img.plain {
   border: 0;
@@ -251,21 +248,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #3b759e;
+  border-color: #00F3BA;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #3b759e; }
+  color: #00F3BA; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #3b759e; }
+  color: #00F3BA; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -277,4 +274,4 @@ body {
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #f7fbfc; } }
+    background-color: white; } }

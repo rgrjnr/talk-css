@@ -30,53 +30,170 @@
 					<small><a href="https://rogerjunior.com/talks/" target="_blank">https://rogerjunior.com/talks/</a></small>
 				</section>
 				
-				<section>
+				<section data-transition="slide-in none">
 					<table>
 						<h2>Variáveis</h2>
 						<tr>
 							<td><center>Code this 🔥</center>
 								<pre><code class="hljs scss" data-trim xcontenteditable>
-								.adix-welcome {
-								  background-image: url('bg.jpg');
-								  padding: $spacing-3xl;
-								  max-width: 600px;
+								:root {
+								  --main-color: aquamarine;
+								  --secondary-color: darkmagenta;
+								}
+								
+								.btn {
+								  font-size: 16px;
+								  padding: 8px;
+								  margin: 8px;
+								  color: var(--main-color);
+								  background: var(--secondary-color);
+								}
 
-								  div {
-								    background: $color__white;
-								    padding: $spacing-xl;
-								  }
-
-								  p {
-								    margin-bottom: $spacing-md;
-								  }
-
+								.btn--secondary {
+								  font-size: 16px;
+								  padding: 8px;
+								  margin: 8px;
+								  color: var(--secondary-color);
+								  background: var(--main-color);
 								}
 								</code></pre>
 
 							</td>
 							<td><center>Not that 💩</center>
 								<pre><code class="hljs scss" data-trim xcontenteditable>
-								.adix-welcome {
-								  background-image: url('bg.jpg');
-								  padding: $spacing-3xl;
-								  max-width: 600px;
-
-								  div {
-								    background: $color__white;
-								    padding: $spacing-xl;
-								  }
-
-								  p {
-								    margin-bottom: $spacing-md;
-								  }
-
+								.btn {
+								  font-size: 16px;
+								  padding: 8px;
+								  margin: 8px;
+								  color: aquamarine;
+								  background: darkmagenta;
 								}
+
+								.btn--secondary {
+								  font-size: 16px;
+								  padding: 8px;
+								  margin: 8px;
+								  color: darkmagenta;
+								  background: aquamarine;
+								} &#13;&#13;&#13;&#13;&#13;&#13;
+								</code></pre>
+							</td>
+						</tr>
+					</table>
+				</section>				
+				<section data-transition="none">
+					<table>
+						<h2>Tamanhos</h2>
+						<tr>
+							<td><center>Code this 🔥</center>
+								<pre><code class="hljs scss" data-trim xcontenteditable>
+								:root {
+								  --main-color: aquamarine;
+								  --secondary-color: darkmagenta;
+								}
+								
+								.btn {
+								  font-size: 16px;
+								  padding: 0.5em;
+								  margin: 0.5em;
+								  color: var(--main-color);
+								  background: var(--secondary-color);
+								}
+
+								.btn--secondary {
+								  font-size: 16px;
+								  padding: 0.5em;
+								  margin: 0.5em;
+								  color: var(--secondary-color);
+								  background: var(--main-color);
+								}
+								</code></pre>
+
+							</td>
+							<td><center>Not that 💩</center>
+								<pre><code class="hljs scss" data-trim xcontenteditable>
+									:root {
+									  --main-color: aquamarine;
+									  --secondary-color: darkmagenta;
+									}
+									
+									.btn {
+									  font-size: 16px;
+									  padding: 8px;
+									  margin: 8px;
+									  color: var(--main-color);
+									  background: var(--secondary-color);
+									}
+
+									.btn--secondary {
+									  font-size: 16px;
+									  padding: 8px;
+									  margin: 8px;
+									  color: var(--secondary-color);
+									  background: var(--main-color);
+									}
+								</code></pre>
+							</td>
+						</tr>
+					</table>
+				</section>				
+				<section data-transition="none">
+					<table>
+						<h2>Sobrescrição</h2>
+						<tr>
+							<td><center>Code this 🔥</center>
+								<pre><code class="hljs scss" data-trim xcontenteditable>
+								:root {
+								  --main-color: aquamarine;
+								  --secondary-color: darkmagenta;
+								}
+								
+								.btn {
+								  font-size: 16px;
+								  padding: 0.5em;
+								  margin: 0.5em;
+								}
+
+								.btn--primary {
+								  color: var(--main-color);
+								  background: var(--secondary-color);
+								}
+
+								.btn--secondary {
+								  color: var(--secondary-color);
+								  background: var(--main-color);
+								}
+								</code></pre>
+
+							</td>
+							<td><center>Not that 💩</center>
+								<pre><code class="hljs scss" data-trim xcontenteditable>
+									:root {
+									  --main-color: aquamarine;
+									  --secondary-color: darkmagenta;
+									}
+									
+									.btn {
+									  font-size: 16px;
+									  padding: 8px;
+									  margin: 8px;
+									  color: var(--main-color);
+									  background: var(--secondary-color);
+									}
+
+									.btn--secondary {
+									  font-size: 16px;
+									  padding: 8px;
+									  margin: 8px;
+									  color: var(--secondary-color);
+									  background: var(--main-color);
+									}
 								</code></pre>
 							</td>
 						</tr>
 					</table>
 				</section>
-				<section>
+				<section data-transition="slide-in none">
 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
 						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
 						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
@@ -87,6 +204,15 @@
 						<small data-align="left">João da Silva</small>
 					</p>
 				</section>
+
+				<section data-background-image="images/opart.gif" data-background-size="initial" data-background-repeat="repeat" data-transition="none">
+					<img src="images/lap.gif">
+					<img src="images/baby.gif">
+					<img src="images/construction.gif">
+					<img src="images/float.gif" width="150px">
+					<img src="images/wolfy.gif">
+				</section>
+
 				<section>Slide 2</section>
 				<section>Slide 2</section>
 			</div>

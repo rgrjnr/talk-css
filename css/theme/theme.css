@@ -307,9 +307,6 @@ body {
 /* line 270, template/theme.scss */
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #313131;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 /* line 278, template/theme.scss */
