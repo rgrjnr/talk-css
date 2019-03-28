@@ -1,26 +1,31 @@
 // Base settings for all themes that can optionally be
 // overridden by the super-theme
 
+@font-face {
+	font-family: Proxima Nova;
+	src: url(proxima-nova-extrabold-italic.woff);
+}
+
 // Background of the presentation
-$backgroundColor: #2b2b2b;
+$backgroundColor: white;
 
 // Primary/body text
-$mainFont: 'Lato', sans-serif;
-$mainFontSize: 40px;
-$mainColor: #eee;
+$mainFont: 'Chivo', sans-serif;
+$mainFontSize: 32px;
+$mainColor: #313131;
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'League Gothic', Impact, sans-serif;
-$headingColor: #eee;
+$headingFont: 'Proxima Nova', sans-serif;
+$headingColor: #0000ED;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: inherit;
 $headingTextShadow: none;
-$headingFontWeight: normal;
+$headingFontWeight: bold;
 $heading1TextShadow: $headingTextShadow;
 
 $heading1Size: 3.77em;
@@ -29,11 +34,11 @@ $heading3Size: 1.55em;
 $heading4Size: 1.00em;
 
 // Links and actions
-$linkColor: #13DAEC;
+$linkColor: #00F3BA;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: #FF5E99;
+$selectionBackgroundColor: #00F3BA;
 $selectionColor: #fff;
 
 // Generates the presentation background, can be overridden
