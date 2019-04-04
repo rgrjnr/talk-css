@@ -15,6 +15,7 @@
 		<style type="text/css">
 			.text-left { text-align: left!important; width: 700px; margin: auto;}
 			.text-right { text-align: right!important; width: 700px; margin: auto;}
+			.dim6 { opacity: 0.2; }
 		</style>
 
 		<!-- Printing and PDF exports -->
@@ -29,8 +30,8 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
-				<section><table class="mc-table"> <thead> <tr class="odd"> <th>Class</th> <th>Phone</th> <th>Tablet</th> <th>Desktop</th> </tr> </thead> <tbody> <tr class="odd"> <td><code class="classname">show-phone</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="even"> <td><code class="classname">show-mobile</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="odd"> <td><code class="classname">hide-phone</code></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="even"> <td><code class="classname">hide-mobile</code></td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="odd"> <td><code class="classname">hide-desktop</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> </tbody> </table></section>
+				
+				<section></section>
 
 				<section>
 					<video autoplay loop muted>
@@ -99,196 +100,727 @@
 					</code></pre>
 				</section>
 
-				<section data-transition="none">
+				<section>
+
+					<p><strong>HTML</strong> = Marcação</p>
+					<p><strong>JS</strong> = Programação</p>
+					<p><strong>CSS</strong> = Estilo</p>
+	
+				</section>
+
+				<section>
+					<h1>Organização</h1>
+				</section>
+
+				<section>
+					<h2>Quem nunca? 💩</h2>
+						<pre style="width: 70%;"><code class="hljs scss" data-trim xcontenteditable>
+						.right,
+						.rtl .left,
+						.rtl #top .site-brand,
+						.rtl .cui-carousel-item,
+						.rtl .case-study-group .block,
+						.rtl fieldset label,
+						.rtl .feature .feature-text,
+						.rtl .feature .feature-block,
+						.rtl .header .header-inner,
+						.rtl .navigation-bar header,
+						.rtl .navigation-bar nav,
+						.rtl dl.inline dt,
+						.rtl .toolbar .btn,
+						.rtl .toolbar .dropdown-wrapper,
+						.rtl .btn-group a,
+						.rtl .input-list li label,
+						.rtl input[type="checkbox"],
+						.rtl input[type="radio"],
+						.rtl .navigation-bar header h1,
+						  float: right !important !important !important;
+						}
+						</code></pre>
+				</section>	
+
+				<section>
+					<h1>ITCSS</h1>
+					<p>Inverted Triangle Cascade Style Sheets</p>
+				</section>
+
+				<section>
+					<img src="images/itcss.png">
+				</section>
+
+				<section>
+					<p>REGRA #1</p>
+					<h1>ID está proibido</h1>
+				</section>
+
+				<section>
+					<h3>Variables</h3>
+					<pre style="width: 80%;"><code class="hljs scss" data-trim xcontenteditable>
+						
+						//-------------------------------------------
+						// 🌌 Colors
+						// ------------------------------------------
+
+						$color__brand-01:     #912B96;
+						$color__brand-02:     #5A205F;
+						$color__brand-03:     #FEEEFE;
+
+						$color__yellow-01:    #EBC221;
+						$color__red-01:       #BC1919;
+						$color__green-01:     #529107;
+						$color__blue-01:      #516bf0;
+
+						$color__black:        #15181A;
+						$color__text-01:      #2E3538;
+						$color__dark-04:      #495257;
+						$color__dark-03:      #656F75;
+						$color__dark-02:      #828E94;
+						$color__dark-01:      #B3C0C7;
+						$color__light-04:     #CEDAE0;
+						$color__light-03:     #DDE6EB;
+						$color__light-02:     #EBF2F5;
+						$color__light-01:     #F5F9FA;
+						$color__white:        #FFFFFF;
+
+
+						//-------------------------------------------
+						// 🌌 Spacing
+						// ------------------------------------------
+						//
+						//   Size in px based on 16px base
+						//
+						//   Spacing Scale
+						//   ==========================================
+						//   3xs  ||  2px
+						//   2xs  ||  4px
+						//   xs   ||  8px
+						//   sm   ||  12px
+						//   md   ||  16px
+						//   lg   ||  24px
+						//   xl   ||  32px
+						//   2xl  ||  40px
+						//   3xl  ||  48px
+						//   ==========================================
+						//
+						//   Layout Scale
+						//   ==========================================
+						//   2xs  ||  16px
+						//   xs   ||  24px
+						//   sm   ||  32px
+						//   md   ||  48px
+						//   lg   ||  64px
+						//   xl   ||  96px
+						//   2xl  ||  160px
+						//   ==========================================
+
+						$spacing-baseline: 1rem !default;
+
+						$spacing-3xs: $spacing-baseline * 0.125 !default;
+						$spacing-2xs: $spacing-baseline * 0.25 !default;
+						$spacing-xs: $spacing-baseline * 0.5 !default;
+						$spacing-sm: $spacing-baseline * 0.75 !default;
+						$spacing-md: $spacing-baseline !default;
+						$spacing-lg: $spacing-baseline * 1.5 !default;
+						$spacing-xl: $spacing-baseline * 2 !default;
+						$spacing-2xl: $spacing-baseline * 2.5 !default;
+						$spacing-3xl: $spacing-baseline * 3 !default;
+
+						$layout-2xs: $spacing-baseline !default;
+						$layout-xs: $spacing-baseline * 1.5 !default;
+						$layout-sm: $spacing-baseline * 2 !default;
+						$layout-md: $spacing-baseline * 3 !default;
+						$layout-lg: $spacing-baseline * 4 !default;
+						$layout-xl: $spacing-baseline * 6 !default;
+						$layout-2xl: $spacing-baseline * 10 !default;
+
+
+						//-------------------------------------------
+						// 🌌 Typography
+						// ------------------------------------------
+
+						$font-family-title: 'Museo', serif !default;
+						$font-family-main: 'Raleway', sans-serif !default;
+
+						$base-font-size: 16px !default; // Default, Use with em() and rem() functions
+
+						$font-scale-factor: 1;
+
+						$typescale-map: (
+						  'giga': 4.75rem,
+						  'mega': 3.375rem,
+						  'alpha': 2.25rem,
+						  'beta': 1.75rem,
+						  'gamma': 1.25rem,
+						  'delta': 1.125rem,
+						  'epsilon': 1rem,
+						  'zeta': 0.875rem,
+						  'omega': 0.75rem,
+						  'caption': 0.75rem,
+						  'legal': 0.6875rem,
+						  'p': 1rem
+						);
+
+						@mixin typescale($size) {
+						  @if map-has-key($typescale-map, $size) {
+						    font-size: $font-scale-factor * map-get($typescale-map, $size);
+						  } @else {
+						    @warn 'This is not a step of type scale!';
+						  }
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Mixins</h3>
+					<pre style="width: 70%;"><code class="hljs scss" data-trim xcontenteditable>
+						@mixin css3-prefix($property, $value) {
+						  -webkit-#{$property}: #{$value};
+						   -khtml-#{$property}: #{$value};
+						     -moz-#{$property}: #{$value};
+						      -ms-#{$property}: #{$value};
+						       -o-#{$property}: #{$value};
+						          #{$property}: #{$value};
+						}
+
+						@mixin input-placeholder {
+						    &.placeholder { @content; }
+						    &:-moz-placeholder { @content; }
+						    &::-moz-placeholder { @content; }
+						    &:-ms-input-placeholder { @content; }
+						    &::-webkit-input-placeholder { @content; }
+						}
+
+						@mixin box-sizing($type: border-box) {
+						  @include css3-prefix('box-sizing', $type);
+						}
+
+						@mixin box-shadow($offset, $opacity: 0.1) {
+						  -webkit-box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+						     -moz-box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+						          box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Generic</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						figcaption,
+						footer,
+						header,
+						hgroup,
+						menu,
+						nav,
+						output,
+						ruby,
+						section,
+						summary,
+						time,
+						mark,
+						audio,
+						video {
+						  margin: 0;
+						  padding: 0;
+						  border: 0;
+						  font-size: 100%;
+						  font: inherit;
+						  vertical-align: baseline;
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Elements</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable style="font-size: 12px;">
+						::selection {
+						    background: rgba(145, 43, 150, 0.7);
+						    color: white;
+						}
+
+						a {
+						    color: $color__brand-01;
+						}
+
+						body {
+						    font-family: $font-family-main;
+						    @include typescale(p);
+						}
+
+
+						h1 { @include typescale(alpha);     font-weight: 300;   }
+						h2 { @include typescale(beta);      font-weight: 300;   }
+						h3 { @include typescale(gamma);     font-weight: 300;   }
+						h4 { @include typescale(delta);                         }
+						h5 { @include typescale(epsilon);                       }
+						h6 { @include typescale(epsilon);                       }
+
+						@media only screen and (min-width: 48em) {
+						h1 { @include typescale(mega);      font-weight: 300;   }
+						h2 { @include typescale(alpha);     font-weight: 300;   }
+						h3 { @include typescale(beta);      font-weight: 300;   }
+						h4 { @include typescale(gamma);                         }
+						h5 { @include typescale(delta);                         }
+						h6 { @include typescale(epsilon);                       }
+						}
+
+						p {
+						    @include typescale(p);
+						    @include line-height(body);
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Components</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						@import "components.404";
+						@import "components.about";
+						@import "components.archive";
+						@import "components.avatars";
+						@import "components.blog-post";
+						@import "components.buttons";
+						@import "components.callout";
+						@import "components.clients";
+						@import "components.comments";
+						@import "components.contact";
+						@import "components.cta";
+						@import "components.faq";
+						@import "components.features";
+						@import "components.footer";
+						@import "components.forms";
+						@import "components.header";
+						@import "components.headings";
+					</code></pre>
+				</section>
+				<section>
+					<h3>Helper classes</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						.text-left { text-align: left!important; }
+						.text-right { text-align: right!important; }
+						.text-center { text-align: center!important; }
+
+						.no-margins { margin: 0!important; }
+
+						.mt-xl { margin-top:    $spacing-xl!important; }
+						.mb-xl { margin-bottom: $spacing-xl!important; }
+						.ml-xl { margin-left:   $spacing-xl!important; }
+						.mr-xl { margin-right:  $spacing-xl!important; }
+
+						(...)
+
+						.mt-xs { margin-top:    $spacing-xs!important; }
+						.mb-xs { margin-bottom: $spacing-xs!important; }
+						.ml-xs { margin-left:   $spacing-xs!important; }
+						.mr-xs { margin-right:  $spacing-xs!important; }
+
+					</code></pre>
+				</section>
+
+
+				<section>
+					<h3>Helper classes</h3>
+
 					<table>
-						<h2>Variáveis</h2>
 						<tr>
-							<td><center>Code this 🔥</center>
+							<td>
 								<pre><code class="hljs scss" data-trim xcontenteditable>
-								:root {
-								  --main-color: aquamarine;
-								  --secondary-color: darkmagenta;
+								// BLEH 💩
+								.role-stat h1,
+								.role-stat h2,
+								.role-su p,
+								.role-su a {
+								  color: #FFF;
 								}
-								
-								.btn {
-								  font-size: 16px;
-								  padding: 8px;
-								  margin: 8px;
-								  color: var(--main-color);
-								  background: var(--secondary-color);
+								.features-1 a,
+								.features-2 a,
+								.features-3 a {
+								  color: #FFF;
+								  text-decoration: underline;
 								}
 
-								.btn--secondary {
-								  font-size: 16px;
-								  padding: 8px;
-								  margin: 8px;
-								  color: var(--secondary-color);
-								  background: var(--main-color);
+								.feature-4 a,
+								.feature-4 a,
+								.feature-4 a {
+								  text-decoration: underline;
 								}
 								</code></pre>
 
 							</td>
-							<td><center>Not that 💩</center>
+							<td>
 								<pre><code class="hljs scss" data-trim xcontenteditable>
-								.btn {
-								  font-size: 16px;
-								  padding: 8px;
-								  margin: 8px;
-								  color: aquamarine;
-								  background: darkmagenta;
+								// TOPZEIRA 🔥
+								.text-white {
+								  color: #FFF;
 								}
 
-								.btn--secondary {
-								  font-size: 16px;
-								  padding: 8px;
-								  margin: 8px;
-								  color: darkmagenta;
-								  background: aquamarine;
-								} &#13;&#13;&#13;&#13;&#13;&#13;
-								</code></pre>
-							</td>
-						</tr>
-					</table>
-				</section>				
-				<section data-transition="none">
-					<table>
-						<h2>Tamanhos</h2>
-						<tr>
-							<td><center>Code this 🔥</center>
-								<pre><code class="hljs scss" data-trim xcontenteditable>
-								:root {
-								  --main-color: aquamarine;
-								  --secondary-color: darkmagenta;
+								.text-underline {
+								  text-decoration: underline;
 								}
-								
-								.btn {
-								  font-size: 16px;
-								  padding: 0.5em;
-								  margin: 0.5em;
-								  color: var(--main-color);
-								  background: var(--secondary-color);
-								}
-
-								.btn--secondary {
-								  font-size: 16px;
-								  padding: 0.5em;
-								  margin: 0.5em;
-								  color: var(--secondary-color);
-								  background: var(--main-color);
-								}
-								</code></pre>
-
-							</td>
-							<td><center>Not that 💩</center>
-								<pre><code class="hljs scss" data-trim xcontenteditable>
-									:root {
-									  --main-color: aquamarine;
-									  --secondary-color: darkmagenta;
-									}
-									
-									.btn {
-									  font-size: 16px;
-									  padding: 8px;
-									  margin: 8px;
-									  color: var(--main-color);
-									  background: var(--secondary-color);
-									}
-
-									.btn--secondary {
-									  font-size: 16px;
-									  padding: 8px;
-									  margin: 8px;
-									  color: var(--secondary-color);
-									  background: var(--main-color);
-									}
-								</code></pre>
-							</td>
-						</tr>
-					</table>
-				</section>				
-				<section data-transition="none">
-					<table>
-						<h2>Sobrescrição</h2>
-						<tr>
-							<td><center>Code this 🔥</center>
-								<pre><code class="hljs scss" data-trim xcontenteditable>
-								:root {
-								  --main-color: aquamarine;
-								  --secondary-color: darkmagenta;
-								}
-								
-								.btn {
-								  font-size: 16px;
-								  padding: 0.5em;
-								  margin: 0.5em;
-								}
-
-								.btn--primary {
-								  color: var(--main-color);
-								  background: var(--secondary-color);
-								}
-
-								.btn--secondary {
-								  color: var(--secondary-color);
-								  background: var(--main-color);
-								}
-								</code></pre>
-
-							</td>
-							<td><center>Not that 💩</center>
-								<pre><code class="hljs scss" data-trim xcontenteditable>
-									:root {
-									  --main-color: aquamarine;
-									  --secondary-color: darkmagenta;
-									}
-									
-									.btn {
-									  font-size: 16px;
-									  padding: 8px;
-									  margin: 8px;
-									  color: var(--main-color);
-									  background: var(--secondary-color);
-									}
-
-									.btn--secondary {
-									  font-size: 16px;
-									  padding: 8px;
-									  margin: 8px;
-									  color: var(--secondary-color);
-									  background: var(--main-color);
-									}
 								</code></pre>
 							</td>
 						</tr>
 					</table>
 				</section>
-				<section data-transition="slide-in none">
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
 
-					</blockquote>
+				<section>
+					<table class="mc-table"> <thead> <tr class="odd"> <th></th> <th>Phone</th> <th>Tablet</th> <th>Desktop</th> </tr> </thead> <tbody> <tr class="odd"> <td><code class="classname">.show-phone</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="even"> <td><code class="classname">.show-mobile</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="odd"> <td><code class="classname">.hide-phone</code></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="even"> <td><code class="classname">.hide-mobile</code></td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="odd"> <td><code class="classname">.hide-desktop</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> </tbody> </table>
+				</section>
+
+				<section>
 					
-					<p>
-						<small data-align="left">João da Silva</small>
-					</p>
 				</section>
 
+				<section>
+					<h1>BEM</h1>
+					<p>Block Element Modifier</p>
+				</section>
+
+				<section data-transition="none">
+					<img src="images/bem1.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bem2.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bem3.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bem4.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bem5.png">
+				</section>
+
+
+				<section data-transition="none">
+					<img src="images/bloco1.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bloco2.png">
+				</section>
+				<section data-transition="none">
+					<img src="images/bloco3.png">
+				</section>
+
+
+
+				<section data-transition="none">
+					<img src="images/btn.png">
+				</section>
+
+
+
+				<section>
+					<h3>.nz--btn</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						.nz--btn {
+							display: inline-block;
+							padding: $spacing-sm $spacing-md;
+							border: 3px solid black;
+							font-family: $font-family-title;
+							font-weight: bold;
+							text-decoration: none;
+							white-space: nowrap;
+
+							.nz--btn__icon {
+								position: relative;
+								vertical-align: middle;
+								top: -1px;
+								width: rem(16px);
+							}
+							
+							&:disabled {
+								cursor: not-allowed;
+								opacity: 0.5;
+							}
+							
+							&:hover {
+								@include box-shadow(4px);
+							}
+						}
+
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<h3>.nz--btn</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						@mixin button-theme($bg-color, $border-color, $font-color, $hover-bg-color, $hover-font-color, $icon-color) {
+						  background-color: $bg-color;
+						  border-width: $button-border-width;
+						  border-style: solid;
+						  border-color: $border-color;
+						  color: $font-color;
+
+						  &:hover {
+						    color: $hover-font-color;
+						  }
+
+						  &:focus,
+						  &:hover {
+						    background-color: $hover-bg-color;
+						  }
+
+						  &:focus {
+						    border: $button-border-width solid $hover-bg-color;
+						    outline: $button-border-width solid $hover-bg-color;
+						    color: $font-color;
+						  }
+
+						  &:disabled:hover,
+						  &:disabled:focus {
+						    background-color: $bg-color;
+
+						  }
+
+						  &:active {
+						    background-color: darken($bg-color, 10%);
+						  }
+
+						  .nz--btn__icon {
+						    fill: $icon-color;
+						  }
+
+						}
+
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<h3>.nz--btn</h3>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						.nz--btn--primary {
+							@include button-theme($color__brand-01, $color__brand-01, $color__white, $color__brand-02, $color__white, $color__brand-01);
+						}
+
+						.nz--btn--secondary {
+							@include button-theme(transparent, $color__brand-01, $color__brand-01, $color__brand-01, $color__white, $color__brand-01) ;
+						}
+
+						.nz--btn--ghost {
+							@include button-theme(transparent, $color__white, $color__white, $color__white, $color__brand-01, $color__white); 
+						}
+
+						.nz--btn--small {
+						   padding: $spacing-xs $spacing-sm;
+						}
+
+						.nz--btn--big {
+							@include typescale(delta);
+						}
+
+					</code></pre>
+				</section>
+
+
+				<section>
+					<img src="images/radio.png">
+				</section>
+
+
+				<section data-transition="none">
+					<h3>.nz--radio</h3>
+					<pre style="width: 60%;"><code class="hljs html" data-trim xcontenteditable>
+						&lt;div class="nz--radio-wrapper">
+						  &lt;input id="option-blue" 
+						  	class="nz--radio"
+						  	type="radio"
+						  	value="blue"
+						  	name="radio-button"
+						  	tabindex="0"
+						  	checked>
+
+						  &lt;label for="option-blue" class="nz--radio__label">
+						    &lt;span class="nz--radio__appearance">&lt;/span>
+						    &lt;span class="nz--radio__label-text">Blue shirt&lt;/span>
+						  &lt;/label>
+						&lt;/div>
+					</code></pre>
+				</section>
+
+
+
+				<section>
+					<img src="images/input.png">
+				</section>
+
+
+				<section data-transition="none">
+					<h3>.nz--text-input</h3>
+					<pre style="width: 60%;"><code class="hljs html" data-trim xcontenteditable>
+						&lt;div class="nz--form-item">
+						  &lt;label for="name" class="nz--label">Text Label&lt;/label>
+						  &lt;div class="nz--form__helper-text">
+						    Optional helper text here;
+						  &lt;/div>
+						  &lt;input
+						  	id="name"
+						  	type="text"
+						  	class="nz--text-input"
+						  	placeholder="Optional placeholder text">
+						 &lt;/div>
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Como estilizar isso?</p>
+				</section>
+
+
+				<section data-transition="none">
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						.nz--form-item input {
+							
+						}
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<p>REGRA #2</p>
+					<h2>Não use elementos</h2>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/* Péssimo */
+						.nz--form-item input {
+							
+						}
+
+						/* Melhor, mas ruim, ficou bom, agora parece que piorou */
+						.nz--form-item .nz--text-input {
+							
+						}
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<p>REGRA #3</p>
+					<h2>Use seletores de baixa especificidade</h2>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/* Péssimo */
+						.nz--form-item input {
+							
+						}
+						
+						/* Melhor, mas ruim, ficou bom, agora parece que piorou */
+						.nz--form-item .nz--text-input {
+							
+						}
+
+						/* Topzeira */
+						.nz--text-input {
+							
+						}
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<p>REGRA #4</p>
+					<h2>Não dependa da hierarquia</h2>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/* Péssimo */
+						nav ul li a {
 		
+						}
+						
+						/* Melhor, mas ruim, ficou bom, agora parece que piorou */
+						.nz--nav .nz--nav__link {
+							
+						}
+
+						/* Topzeira */
+						.nz--nav__link {
+							
+						}
+					</code></pre>
+				</section>
+
+				<section data-transition="none">
+					<h2>Cuidado com o SASS</h2>
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/* Não é legal */
+						.nz--nav {
+							.nz--nav__link {
+
+							}
+						}
+					</code></pre>
+				</section>
+
+
+				<section data-transition="none">
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/// RUIM
+						.nz--radio-wrapper {
+							.nz--radio__label-text {
+
+							}
+						}
+
+						.nz--checkbox-wrapper {
+							.nz--checkbox__label-text {
+							
+							}
+						}
+
+
+						/// TOP
+						.nz--radio__label-text, .nz--checkbox__label-text {
+
+						}
+					</code></pre>
+				</section>
+
+
+				<section data-transition="none">
+					<pre style="width: 60%;"><code class="hljs scss" data-trim xcontenteditable>
+						/// SEM TEMPO, IRMÃO
+						.nz--label-text {
+
+						}
+
+					</code></pre>
+				</section>
 
 				<section>
-					<img src="images/this1.jpg" width="700px">
-					<p><small><a href="http://atomicdesign.bradfrost.com/">Brad Frost</a></small></p>
+					<p>REGRA #5</p>
+					<h1>Não tenha medo de reescrever</h1>
 				</section>
+
 				<section>
-					<img src="images/this2.jpg" width="700px">
-					<p><small><a href="http://atomicdesign.bradfrost.com/">Brad Frost</a></small></p>
+					
 				</section>
+
 				<section>
-					<img src="images/this3.jpg" width="700px">
-					<p><small><a href="http://atomicdesign.bradfrost.com/">Brad Frost</a></small></p>
+					<h2>Quais os impactos?</h2>
 				</section>
-				<section>Slide 2</section>
+
+				<section>
+					<ul>
+						<li>Otimização de tempo</li>
+					</ul>
+					<img src="images/badoo.png">
+					<small>https://medium.com/@didoo/measuring-the-impact-of-a-design-system-7f925af090f7</small>
+				</section>
+
+				<section>
+
+					<h2>Quais os impactos?</h2>
+
+					<ul>
+						<li class="fragment">Redução de esforço mental</li>
+						<li class="fragment">Redução dos problemas de cascata</li>
+						<li class="fragment">Fácil de criar temas</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>E porque fazer o CSS e não usar o JS?</h2>
+					<ul>
+						<li class="fragment">Portabilidade</li>
+						<li class="fragment">Os problemas de herança que o JS promete resolver acabam com o CSS organizado</li>
+						<li class="fragment">Misturar linguagens bagunça a função de cada uma</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 class="fragment">Internet livre e democrática 💖</h2>
+				</section>
 			</div>
 		</div>
 

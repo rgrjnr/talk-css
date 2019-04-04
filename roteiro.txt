@@ -20,13 +20,17 @@ Em 1993, o Marc Andressen, que na época era estudante na Universidade de Illino
 
 Bom, o Marc só tacou o foda-se e lançou a tag no Mosaic, sendo o primeiro navegador a suportar imagens.
 
-Seguindo a cronologia em 1995 a Microsoft solta a primeira versão do Internet Explorer
+Seguindo a cronologia em 1995 a Microsoft solta a primeira versão do karma de todos devs front-end, o Internet Explorer
 
 E em 1996 é publicada a primeira spec do CSS 1 que só vai ser implementada porcamente no Internet Explorer 3. 
 
 Mas daí o CSS só vai ficar usável de fato a partir de 2000. E nesse meio tempo o CSS não foi a linguagem escolhidade desde o começo e, na verdade, o Netscape foi para um caminho contrário, eles lançaram o JSSS. 
 
-O Netscape convertia o CSS para JS que então era renderizado como estilo no browser, então eles resolveram abrir essa interface para os desenvolvedores que quisessem programar direto no JS sem uma terceira linguagem. Eu particularmente não mexo com frameworks, mas pelo que eu estive vendo isso lembra bastante a aplicação de CSS dentro do JS como rola no React, por exemplo, então isso não é exatamente novo também. Mas o Netscape foi extramemente criticado por seguir contra a padronização da WEB e o JSSS foi descontinuado no ano 2000 e o Netscape seguiu na sua silenciosa e lenta morte.
+O Netscape convertia o CSS para JS que então era renderizado como estilo no browser, então eles resolveram abrir essa interface para os desenvolvedores que quisessem programar direto no JS sem uma terceira linguagem.
+
+ Eu particularmente não mexo com frameworks, mas pelo que eu estive vendo isso lembra bastante a aplicação de CSS dentro do JS como rola no React, por exemplo, então isso não é exatamente novo também. 
+
+ Mas o Netscape foi extramemente criticado por seguir contra a padronização da WEB e o JSSS foi descontinuado no ano 2000 e o Netscape seguiu na sua silenciosa e lenta morte.
 
 (
 
@@ -38,6 +42,7 @@ Só antes de começar eu queria fazer uma diferenciação entre as três linguag
 
 Eu vou falar um pouco mais a fundo no final da apresentação, mas eu queria deixa isso claro agora porque essa divisão vai facilitar muito na hora de criar o CSS.
 
+Conturbado CSS nos HTML e JS
 )
 
 Bom, essa história mostra dois grandes problemas que rolaram e rolam até hoje. O primeiro da mistura de linguagens, que foi uma discussão meio que desde sempre e a segunda, a falta de estratégia/organização, já que até pouco tempo o CSS não tinha padronização e cada browser implementava de um jeito.
@@ -45,6 +50,35 @@ Bom, essa história mostra dois grandes problemas que rolaram e rolam até hoje.
 =================================================
 
 Um dos principais motivos pelo qual as pessoas desgostam do CSS é na verdade geralmente pela falta de planejamento. Como eu já disse o CSS é uma linguagem mãezona, é muito fácil de começar e quando você vê você já perdeu controle e ta criando uma classe "coisa-azul-um-pouco-maior-pra-nao-quebrar".
+
+Porque de fato, às vezes é muito fácil a gente perder a mão da nossa folha de estilo e acabar com isso:
+.right,
+.rtl .left,
+.rtl #top .site-brand,
+.rtl .cui-carousel-item,
+.rtl .case-study-group .block,
+.rtl fieldset label,
+.rtl .column-1, .rtl .column-2,
+.rtl .column-7, .rtl .column-8,
+.rtl .column-9, .rtl .column-10,
+.rtl .column-11, .rtl .column-12,
+.rtl .column-13, .rtl .column-14,
+.rtl .column-23, .rtl .column-24,
+.rtl .feature .feature-text,
+.rtl .feature .feature-block,
+.rtl .header .header-inner,
+.rtl .navigation-bar header,
+.rtl .navigation-bar nav,
+.rtl dl.inline dt,
+.rtl .toolbar .btn,
+.rtl .toolbar .dropdown-wrapper,
+.rtl .btn-group a,
+.rtl .input-list li label,
+.rtl input[type="checkbox"],
+.rtl input[type="radio"],
+.rtl .navigation-bar header h1,
+  float: right !important !important !important;
+}
 
 Quando a gente está trabalhando com linguagens de programação a gente para um tempo para pensar a arquitetura do software e para o CSS não pode ser diferente. A gente precisa pensar a estrutura do nosso estilo num contexto geral do Design System da nossa aplicação.
 
@@ -65,7 +99,7 @@ O legal dessa divisão é que ela dá uma visão big picture do projeto todo. El
 
 Dentro desse sistema a primeira regra é:
 
-ID está proibido
+1. ID está proibido
 
 ID a gente vai deixar para o JS achar os elementos no DOM, a gente tem que pensar que o ID é uma identificação única, diferente de uma classe e a gente não quer deixar o CSS com esse nível de especificidade.
 
@@ -258,7 +292,7 @@ p {
 
 
 COMPONENTES ------------------------------------------------
-O grosso
+O grosso. É importante deixar eles separadinhos bonitinho
 
 HELPER CLASSES ---------------------------------------------
 
@@ -271,10 +305,10 @@ HELPER CLASSES ---------------------------------------------
 
 .no-margins { margin: 0!important; }
 
-.no-mb { margin-bottom: 0!important; }
-.no-mt { margin-top: 0!important; }
-.no-ml { margin-left: 0!important; }
-.no-mr { margin-right: 0!important; }
+.mb-none { margin-bottom: 0!important; }
+.mt-none { margin-top: 0!important; }
+.ml-none { margin-left: 0!important; }
+.mr-none { margin-right: 0!important; }
 
 .mt-xl { margin-top:    $spacing-xl!important; }
 .mb-xl { margin-bottom: $spacing-xl!important; }
@@ -289,49 +323,286 @@ HELPER CLASSES ---------------------------------------------
 .mr-xs { margin-right:  $spacing-xs!important; }
 
 
+
+/// BLEH
+.role-stat h1,
+.role-stat h2,
+.role-su p,
+.role-su a {
+  color: #FFF;
+}
+
+.features-1 h1,
+.features-1 h2,
+.features-1 p,
+.features-3 h2,
+.features-3 p {
+  color: #FFF;
+}
+
+.features-1 a,
+.features-2 a,
+.features-3 a {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.feature-4 a,
+.feature-4 a,
+.feature-4 a {
+  text-decoration: underline;
+}
+
+///TOPZEIRA
+.text-white {
+  color: #FFF;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+=================================================
+
 Acho que a parte mais dificil de ser programador não é a lógica, não é a matemática não é nada disso. A parte mais difícil é dar nomes as coisas. Quem nunca ficou na dúvida se chamava a variável de content ou de response. Essa é a parte mais difícil.
 
-E pra isso 
+E pra isso uma técnica que ajuda muito é o BEM
 
+BEM significa
 
-Settings – used with preprocessors and contain font, colors definitions, etc.
-Tools – globally used mixins and functions. It’s important not to output any CSS in the first 2 layers.
-Generic – reset and/or normalize styles, box-sizing definition, etc. This is the first layer which generates actual CSS.
-Elements – styling for bare HTML elements (like H1, A, etc.). These come with default styling from the browser so we can redefine them here.
-Objects – class-based selectors which define undecorated design patterns, for example media object known from OOCSS
-Components – specific UI components. This is where majority of our work takes place and our UI components are often composed of Objects and Components
-Utilities – utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+Bloco Elemento Modificador
 
+(FAZER FOTO ESQUEMA)
 
+Essa estrutura na verdade ela é bem abrangente, a gente tem blocos que podem ter vários elementos e esses elementos em si podem ser outros blocos
 
+EXEMPLO DO BOTAO -------------------------
 
+.nz--btn {
+	display: inline-block;
+	padding: $spacing-sm $spacing-md;
+	border: 3px solid black;
+	font-family: $font-family-title;
+	font-weight: bold;
+	text-decoration: none;
+	white-space: nowrap;
 
-
-Porque de fato, às vezes é muito fácil a gente perder a mão da nossa folha de estilo e acabar com isso:
-.right,
-.rtl .left,
-.rtl #top .site-brand,
-.rtl .cui-carousel-item,
-.rtl .case-study-group .block,
-.rtl fieldset label,
-.rtl .column-1, .rtl .column-2,
-.rtl .column-7, .rtl .column-8,
-.rtl .column-9, .rtl .column-10,
-.rtl .column-11, .rtl .column-12,
-.rtl .column-13, .rtl .column-14,
-.rtl .column-23, .rtl .column-24,
-.rtl .feature .feature-text,
-.rtl .feature .feature-block,
-.rtl .header .header-inner,
-.rtl .navigation-bar header,
-.rtl .navigation-bar nav,
-.rtl dl.inline dt,
-.rtl .toolbar .btn,
-.rtl .toolbar .dropdown-wrapper,
-.rtl .btn-group a,
-.rtl .input-list li label,
-.rtl input[type="checkbox"],
-.rtl input[type="radio"],
-.rtl .navigation-bar header h1,
-  float: right !important !important !important;
+	.nz--btn__icon {
+		position: relative;
+		vertical-align: middle;
+		top: -1px;
+		width: rem(16px);
+	}
+	
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
 }
+
+
+.nz--btn--primary {
+	@include button-theme($color__brand-01, $color__brand-01, $color__white, $color__brand-02, $color__white, $color__brand-01);
+}
+
+.nz--btn--secondary {
+	@include button-theme(transparent, $color__brand-01, $color__brand-01, $color__brand-01, $color__white, $color__brand-01) ;
+}
+
+.nz--btn--ghost {
+	@include button-theme(transparent, $color__white, $color__white, $color__white, $color__brand-01, $color__white); 
+}
+
+@mixin button-theme($bg-color, $border-color, $font-color, $hover-bg-color, $hover-font-color, $icon-color) {
+  background-color: $bg-color;
+  border-width: $button-border-width;
+  border-style: solid;
+  border-color: $border-color;
+  color: $font-color;
+
+  &:hover {
+    color: $hover-font-color;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+
+  &:focus {
+    border: $button-border-width solid $hover-bg-color;
+    outline: $button-border-width solid $hover-bg-color;
+    color: $font-color;
+  }
+
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: $bg-color;
+
+  }
+
+  &:active {
+    background-color: darken($bg-color, 10%);
+  }
+
+  .nz--btn__icon {
+    fill: $icon-color;
+  }
+
+}
+
+.nz--btn--small {
+   padding: $spacing-xs $spacing-sm;
+}
+
+.nz--btn--big {
+	@include typescale(delta);
+}
+
+
+
+
+<div class="nz--radio-wrapper">
+  <input id="option-blue" 
+  	class="nz--radio"
+  	type="radio"
+  	value="blue"
+  	name="radio-button"
+  	tabindex="0"
+  	checked>
+
+  <label for="option-blue" class="nz--radio__label">
+    <span class="nz--radio__appearance"></span>
+    <span class="nz--radio__label-text">Blue shirt</span>
+  </label>
+</div>
+
+
+
+
+
+&lt;div class="nz--form-item">
+  &lt;label for="name" class="nz--label">Text Label&lt;/label>
+  &lt;div class="nz--form__helper-text">
+    Optional helper text here;
+  &lt;/div>
+  &lt;input id="name" type="text" class="nz--text-input" placeholder="Optional placeholder text">
+ &lt;/div>
+
+.nz--text-input {
+	
+}
+
+.nz-form--dark {
+	.nz--text-input {
+
+	}
+}
+
+
+Aqui dá vontade de no css fazer isso:
+2. Não use Elementos
+3. Use seletores de baixa especificade
+
+
+// Péssimo
+.nz--form-item input {
+	
+}
+
+// Melhor, mas ruim, ficou bom, agora parece que piorou
+.nz--form-item .nz--text-input {
+	
+}
+
+// Topzeira
+.nz--text-input {
+	
+}
+
+4. Não dependa da hierarquia
+
+nav ul li a {
+	
+}
+
+.nz--nav .nz--nav__link {
+	
+}
+
+.nz--nav__link {
+	
+}
+
+(Também não é legal)
+.nz--nav {
+	.nz--nav__link {
+
+	}
+}
+
+Tem um motivo
+
+/// RUIM
+.nz--radio-wrapper {
+	.nz--radio__label-text {
+
+	}
+}
+
+.nz--checkbox-wrapper {
+	.nz--checkbox__label-text {
+	
+	}
+}
+
+
+/// TOP
+.nz--radio__label-text, .nz--checkbox__label-text {
+
+}
+
+Esse é só um exemplo um exemplo, mas rola várias situações que você pode reusar um elemento mas acaba criando uma nova classe no CSS para poder usar ele dentro de outra estrutura HTML e nesses casos compensa repensar a arquitetura do estilo
+
+/// FOI PRA ESTRELA IRMÂO
+.nz--label-text {
+
+}
+
+5. Não tenha medo de reescrever
+O CSS perde o controle justamente porque a gente fica criando exceções e colocando !important e geralmente a gente consegue resolver repensando como é a nossa classificação
+
+======================================================================================================
+
+FINALIZANDO
+
+Fazer o CSS bonitinho é dificil realmente, tem muito quebrar a cara no processo, eu quebrei muito a cara já, tem muita coisa que eu vejo que eu fiz e se eu pudesse parava e refazia tudo com o que eu aprendi no processo
+
+Mas daí quais são os impactos de verdade?
+
+Isso não é um preciosismo pro código ficar bonito só 
+O Cristiano Rastelli | Implementação do Cosmos, o Design System do Badoo
+https://medium.com/@didoo/measuring-the-impact-of-a-design-system-7f925af090f7
+
+- Otimiza muito o tempo da empresa
+- Diminui o esforço mental no processo. Você não precisa se preocupar se vai usar 20px ou 21px só precisa saber que é um $spacing-sm e está tudo certo
+- A nomenclatura e organização do CSS deixa quase impossível acontecer os problemas de cascata, e você acaba usando a cascata ao seu favor
+- A estrutura global deixa mais fácil criar temas
+
+E porque fazer o CSS e não usar o JS
+- A primeira coisa é que o CSS é portável. na empresa que eu trabalhei eu comecei desenvolvendo o Design System pro site principal, esse processo demandou um grande esforço, mas quando eu terminei escrever as outras páginas foi muito rápido, e quando eu fui pra plataforma de pedido, tudo já estava praticamente pronto, só precisei de novos componentes.
+Então se você precisar usar seu design system em wordpress ou numa outra aplicação fica muito mais fácil.
+
+- O problema de herança que o JS no CSS promete resolver acaba com a organização bonitinha.
+
+- Eu particularmente desgosto de misturar muito as coisas e o CSS no JS adiciona um outro nível de abstração.
+
+- E separar o CSS do HTML e JS não é só minha lua em virgem;
+
+- a internet é realmente um espaço aberto, em teoria qualquer um pode pegar e colocar o site no ar da sua loja, seu blog ou qualquer coisa.
+
+- Eu sinto que muito dos movimentos são um pouco ditados pelas grandes empresas e eu acho que a web não pode perder essa essência democrática deixando todas as linguagens super otimizadas para eficiências a qualquer custo.
+
+- Mas é isso pessoal, eu queria agradecer a atenção e abrir pra dúvidas se alguem tiver
+
+Falar do feedback
