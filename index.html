@@ -29,10 +29,24 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
+				<section><table class="mc-table"> <thead> <tr class="odd"> <th>Class</th> <th>Phone</th> <th>Tablet</th> <th>Desktop</th> </tr> </thead> <tbody> <tr class="odd"> <td><code class="classname">show-phone</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="even"> <td><code class="classname">show-mobile</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="odd"> <td><code class="classname">hide-phone</code></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="even"> <td><code class="classname">hide-mobile</code></td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="odd"> <td><code class="classname">hide-desktop</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> </tbody> </table></section>
+
+				<section>
+					<video autoplay loop muted>
+					  <source src="images/roger.mp4" type="video/mp4">
+					</video>
+				</section>
+
+
 				<section>
 					<h2>Por que meu CSS não é escalável?</h2>
 					<p>E como resolver isso 👌</p>
 					<small><a href="https://rogerjunior.com/talks/" target="_blank">https://rogerjunior.com/talks/</a></small>
+				</section>
+
+				<section>
+					<img src="images/www.png" style="max-height: 80vh">
 				</section>
 				
 				<section data-transition="none">
@@ -53,11 +67,36 @@
 					<img src="images/conversa2.jpg" width="700px">
 				</section>
 				<section data-background-image="images/opart.gif" data-background-size="initial" data-background-repeat="repeat" data-transition="none">
-					<img src="images/lap.gif">
-					<img src="images/baby.gif">
+					<img src="images/baby.gif" style="vertical-align: middle;">
+					<img src="images/mosaic-browser.jpg" style="vertical-align: middle;">
+					<img src="images/baby.gif" style="vertical-align: middle;"><br>
 					<img src="images/construction.gif">
 					<img src="images/float.gif" width="150px">
-					<img src="images/wolfy.gif">
+				</section>
+
+				<section>
+					<img src="images/ie1.png">
+				</section>
+
+				<section>
+					<img src="images/firstcss.png" width="700px">
+				</section>
+
+				<section>
+					<img src="images/ie3.gif" width="700px">
+				</section>
+
+				<section>
+					<h2>CSS</h2>
+					<pre style="width: 70%; font-size: 80%;"><code class="hljs scss" data-trim xcontenteditable >
+					h1 { font-size: 20pt; }
+					</code></pre>
+					<br>
+					
+					<h2>JSSS</h2>
+					<pre style="width: 70%; font-size: 80%;"><code class="hljs js" data-trim xcontenteditable >
+					document.tags.H1.fontSize = "20pt";
+					</code></pre>
 				</section>
 
 				<section data-transition="none">
@@ -261,6 +300,7 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				width: 1000,
 				dependencies: [
 					{ src: 'socket.io/socket.io.js', async: true },
 					{ src: 'plugin/notes-server/client.js', async: true },

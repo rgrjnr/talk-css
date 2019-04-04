@@ -1,0 +1,337 @@
+=================================================
+
+Olá, antes de começar eu vou me apresentar. Meu nome é Roger e esse sou eu cantando no karaoke, eu só não to dançando loucamente porque infelizmente não estava tocando Marília Mendonça na hora;
+
+Sou estudante de Design e desde o começo da faculdade eu me aproximei da programação, quando eu comecei foi com o HTML e CSS só e mais recentemente eu comecei a aprender de fato JS, Python e mais pro back o PHP (não me julguem hahah)
+
+=================================================
+
+Bom, hoje a gente vai falar de porque meu css não é escalável. Eu vou falar um pouquinho dos principais problemas que a galera tem com CSS e dar algumas dicas de como resolver.
+
+O CSS é uma linguagem muito polêmica, muita gente não curte, muita gente odeia e, realmente, CSS é uma arte, é uma linguagem muito mãezona, dá pra fazer muita coisa mas é difícil fazer direito e por isso tem muita gente que tem a sensação de ficar mexendo no código aleatoriamente até ele funcionar.
+
+Mas história do CSS, e na verdade a história da Internet é meio contrubada e polêmica também.
+
+E se a gente parar pra pensar a internet não é tão velha assim. O Tim Bernes Lee soltou a primeira versão do World Wide Web em 1990.
+
+Nessa época o browser só renderizava texto e os desenvolvedores não tinham controle sob essa rederização também.
+
+Em 1993, o Marc Andressen, que na época era estudante na Universidade de Illinois, resolve sugerir uma nova tag opcional para o html <img>. Mas daí, preocupado com uma "otimização precoce" o Tim Bernes Lee acha furada, porque ele fala que isso vai dar abertura pra criar outras um milhão de tags pra cada tipo de conteúdo e ele fala "Que tal <entity>?"
+
+Bom, o Marc só tacou o foda-se e lançou a tag no Mosaic, sendo o primeiro navegador a suportar imagens.
+
+Seguindo a cronologia em 1995 a Microsoft solta a primeira versão do Internet Explorer
+
+E em 1996 é publicada a primeira spec do CSS 1 que só vai ser implementada porcamente no Internet Explorer 3. 
+
+Mas daí o CSS só vai ficar usável de fato a partir de 2000. E nesse meio tempo o CSS não foi a linguagem escolhidade desde o começo e, na verdade, o Netscape foi para um caminho contrário, eles lançaram o JSSS. 
+
+O Netscape convertia o CSS para JS que então era renderizado como estilo no browser, então eles resolveram abrir essa interface para os desenvolvedores que quisessem programar direto no JS sem uma terceira linguagem. Eu particularmente não mexo com frameworks, mas pelo que eu estive vendo isso lembra bastante a aplicação de CSS dentro do JS como rola no React, por exemplo, então isso não é exatamente novo também. Mas o Netscape foi extramemente criticado por seguir contra a padronização da WEB e o JSSS foi descontinuado no ano 2000 e o Netscape seguiu na sua silenciosa e lenta morte.
+
+(
+
+Só antes de começar eu queria fazer uma diferenciação entre as três linguagens pra gente ficar na mesma página.
+
+# HTML - Marcação
+# JS/PHP/RUBY - Programação
+# CSS - Estilo
+
+Eu vou falar um pouco mais a fundo no final da apresentação, mas eu queria deixa isso claro agora porque essa divisão vai facilitar muito na hora de criar o CSS.
+
+)
+
+Bom, essa história mostra dois grandes problemas que rolaram e rolam até hoje. O primeiro da mistura de linguagens, que foi uma discussão meio que desde sempre e a segunda, a falta de estratégia/organização, já que até pouco tempo o CSS não tinha padronização e cada browser implementava de um jeito.
+
+=================================================
+
+Um dos principais motivos pelo qual as pessoas desgostam do CSS é na verdade geralmente pela falta de planejamento. Como eu já disse o CSS é uma linguagem mãezona, é muito fácil de começar e quando você vê você já perdeu controle e ta criando uma classe "coisa-azul-um-pouco-maior-pra-nao-quebrar".
+
+Quando a gente está trabalhando com linguagens de programação a gente para um tempo para pensar a arquitetura do software e para o CSS não pode ser diferente. A gente precisa pensar a estrutura do nosso estilo num contexto geral do Design System da nossa aplicação.
+
+A parte boa é que muita gente já quebrou muito a cabeça para padronizar e desenvolver boas práticas no que diz respeito ao HTML e CSS.
+
+Uma coisa muito comum é ficar com um CSS gigantesco que além de ser super ineficiente e deixar a manutenção do estilo impossível ao longo do tempo. E honestamente eu aprendi que existiam frameworks muito recentemente, porque na verdade eu acabei aprendendo isso na marra e fuçando design system de outras empresas, em especial da IBM que é um xuxuzinho, super bem documentado.
+
+Uma técnica para organizar o CSS é o ITCSS que basicamente divide o CSS por funções
+
+Variables - cores, espaçamento, tempo, fontes, etc
+Mixins - box-shadow()
+Generic - reset
+Elements - estilo para tags 
+Componentes - maior parte do trabalho rola aqui
+Helper classes
+
+O legal dessa divisão é que ela dá uma visão big picture do projeto todo. Ela ajuda a identificar também o quão específico as coisas são.
+
+Dentro desse sistema a primeira regra é:
+
+ID está proibido
+
+ID a gente vai deixar para o JS achar os elementos no DOM, a gente tem que pensar que o ID é uma identificação única, diferente de uma classe e a gente não quer deixar o CSS com esse nível de especificidade.
+
+Nas duas primeiras camadas a gente não vai imprimir uma linha de CSS.
+
+VARIABLES ------------------------------------------------------------
+
+//-------------------------------------------
+// 🌌 Colors
+// ------------------------------------------
+
+$color__brand-01:     #912B96;
+$color__brand-02:     #5A205F;
+$color__brand-03:     #FEEEFE;
+
+$color__yellow-01:    #EBC221;
+$color__red-01:       #BC1919;
+$color__green-01:     #529107;
+$color__blue-01:      #516bf0;
+
+$color__black:        #15181A;
+$color__text-01:      #2E3538;
+$color__dark-04:      #495257;
+$color__dark-03:      #656F75;
+$color__dark-02:      #828E94;
+$color__dark-01:      #B3C0C7;
+$color__light-04:     #CEDAE0;
+$color__light-03:     #DDE6EB;
+$color__light-02:     #EBF2F5;
+$color__light-01:     #F5F9FA;
+$color__white:        #FFFFFF;
+
+
+//-------------------------------------------
+// 🌌 Spacing
+// ------------------------------------------
+//
+//   Size in px based on 16px base
+//
+//   Spacing Scale
+//   ==========================================
+//   3xs  ||  2px
+//   2xs  ||  4px
+//   xs   ||  8px
+//   sm   ||  12px
+//   md   ||  16px
+//   lg   ||  24px
+//   xl   ||  32px
+//   2xl  ||  40px
+//   3xl  ||  48px
+//   ==========================================
+//
+//   Layout Scale
+//   ==========================================
+//   2xs  ||  16px
+//   xs   ||  24px
+//   sm   ||  32px
+//   md   ||  48px
+//   lg   ||  64px
+//   xl   ||  96px
+//   2xl  ||  160px
+//   ==========================================
+
+$spacing-baseline: 1rem !default;
+
+$spacing-3xs: $spacing-baseline * 0.125 !default;
+$spacing-2xs: $spacing-baseline * 0.25 !default;
+$spacing-xs: $spacing-baseline * 0.5 !default;
+$spacing-sm: $spacing-baseline * 0.75 !default;
+$spacing-md: $spacing-baseline !default;
+$spacing-lg: $spacing-baseline * 1.5 !default;
+$spacing-xl: $spacing-baseline * 2 !default;
+$spacing-2xl: $spacing-baseline * 2.5 !default;
+$spacing-3xl: $spacing-baseline * 3 !default;
+
+$layout-2xs: $spacing-baseline !default;
+$layout-xs: $spacing-baseline * 1.5 !default;
+$layout-sm: $spacing-baseline * 2 !default;
+$layout-md: $spacing-baseline * 3 !default;
+$layout-lg: $spacing-baseline * 4 !default;
+$layout-xl: $spacing-baseline * 6 !default;
+$layout-2xl: $spacing-baseline * 10 !default;
+
+
+//-------------------------------------------
+// 🌌 Typography
+// ------------------------------------------
+
+$font-family-title: 'Museo', serif !default;
+$font-family-main: 'Raleway', sans-serif !default;
+
+$base-font-size: 16px !default; // Default, Use with em() and rem() functions
+
+$font-scale-factor: 1;
+
+$typescale-map: (
+  'giga': 4.75rem,
+  'mega': 3.375rem,
+  'alpha': 2.25rem,
+  'beta': 1.75rem,
+  'gamma': 1.25rem,
+  'delta': 1.125rem,
+  'epsilon': 1rem,
+  'zeta': 0.875rem,
+  'omega': 0.75rem,
+  'caption': 0.75rem,
+  'legal': 0.6875rem,
+  'p': 1rem
+);
+
+@mixin typescale($size) {
+  @if map-has-key($typescale-map, $size) {
+    font-size: $font-scale-factor * map-get($typescale-map, $size);
+  } @else {
+    @warn 'This is not a step of type scale!';
+  }
+}
+
+
+MIXINS --------------------------------------------------------------------
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+@mixin box-sizing($type: border-box) {
+  @include css3-prefix('box-sizing', $type);
+}
+
+@mixin box-shadow($offset, $opacity: 0.1) {
+  -webkit-box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+     -moz-box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+          box-shadow: 0px $offset 2*$offset 0px rgba(0,0,0,$opacity);
+}
+
+GENERIC --------------------------------------------------
+Reset
+Grids
+
+
+ELEMENTS -------------------------------------------------
+
+::selection {
+    background: rgba(145, 43, 150, 0.7);
+    color: white;
+}
+
+a {
+	color: $color__brand-01;
+}
+
+body {
+	font-family: $font-family-main;
+	@include typescale(p);
+}
+
+
+h1 { @include typescale(alpha);		font-weight: 300;	}
+h2 { @include typescale(beta);		font-weight: 300;	}
+h3 { @include typescale(gamma);		font-weight: 300;	}
+h4 { @include typescale(delta);							}
+h5 { @include typescale(epsilon);						}
+h6 { @include typescale(epsilon);						}
+
+@media only screen and (min-width: 48em) {
+h1 { @include typescale(mega);		font-weight: 300;	}
+h2 { @include typescale(alpha);		font-weight: 300;	}
+h3 { @include typescale(beta);		font-weight: 300;	}
+h4 { @include typescale(gamma);							}
+h5 { @include typescale(delta);							}
+h6 { @include typescale(epsilon);						}
+}
+
+p {
+	@include typescale(p);
+	@include line-height(body);
+}
+
+
+COMPONENTES ------------------------------------------------
+O grosso
+
+HELPER CLASSES ---------------------------------------------
+
+<table class="mc-table"> <thead> <tr class="odd"> <th>Class</th> <th>Phone</th> <th>Tablet</th> <th>Desktop</th> </tr> </thead> <tbody> <tr class="odd"> <td><code class="classname">show-phone</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="even"> <td><code class="classname">show-mobile</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> <tr class="odd"> <td><code class="classname">hide-phone</code></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="even"> <td><code class="classname">hide-mobile</code></td> <td><span class="dim6">Hidden</span></td> <td><span class="dim6">Hidden</span></td> <td class="c-responsiveUtility--visible">Visible</td> </tr> <tr class="odd"> <td><code class="classname">hide-desktop</code></td> <td class="c-responsiveUtility--visible">Visible</td> <td class="c-responsiveUtility--visible">Visible</td> <td><span class="dim6">Hidden</span></td> </tr> </tbody> </table>
+
+
+.text-left { text-align: left!important; }
+.text-right { text-align: right!important; }
+.text-center { text-align: center!important; }
+
+.no-margins { margin: 0!important; }
+
+.no-mb { margin-bottom: 0!important; }
+.no-mt { margin-top: 0!important; }
+.no-ml { margin-left: 0!important; }
+.no-mr { margin-right: 0!important; }
+
+.mt-xl { margin-top:    $spacing-xl!important; }
+.mb-xl { margin-bottom: $spacing-xl!important; }
+.ml-xl { margin-left:   $spacing-xl!important; }
+.mr-xl { margin-right:  $spacing-xl!important; }
+
+(...)
+
+.mt-xs { margin-top:    $spacing-xs!important; }
+.mb-xs { margin-bottom: $spacing-xs!important; }
+.ml-xs { margin-left:   $spacing-xs!important; }
+.mr-xs { margin-right:  $spacing-xs!important; }
+
+
+Acho que a parte mais dificil de ser programador não é a lógica, não é a matemática não é nada disso. A parte mais difícil é dar nomes as coisas. Quem nunca ficou na dúvida se chamava a variável de content ou de response. Essa é a parte mais difícil.
+
+E pra isso 
+
+
+Settings – used with preprocessors and contain font, colors definitions, etc.
+Tools – globally used mixins and functions. It’s important not to output any CSS in the first 2 layers.
+Generic – reset and/or normalize styles, box-sizing definition, etc. This is the first layer which generates actual CSS.
+Elements – styling for bare HTML elements (like H1, A, etc.). These come with default styling from the browser so we can redefine them here.
+Objects – class-based selectors which define undecorated design patterns, for example media object known from OOCSS
+Components – specific UI components. This is where majority of our work takes place and our UI components are often composed of Objects and Components
+Utilities – utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+
+
+
+
+
+
+Porque de fato, às vezes é muito fácil a gente perder a mão da nossa folha de estilo e acabar com isso:
+.right,
+.rtl .left,
+.rtl #top .site-brand,
+.rtl .cui-carousel-item,
+.rtl .case-study-group .block,
+.rtl fieldset label,
+.rtl .column-1, .rtl .column-2,
+.rtl .column-7, .rtl .column-8,
+.rtl .column-9, .rtl .column-10,
+.rtl .column-11, .rtl .column-12,
+.rtl .column-13, .rtl .column-14,
+.rtl .column-23, .rtl .column-24,
+.rtl .feature .feature-text,
+.rtl .feature .feature-block,
+.rtl .header .header-inner,
+.rtl .navigation-bar header,
+.rtl .navigation-bar nav,
+.rtl dl.inline dt,
+.rtl .toolbar .btn,
+.rtl .toolbar .dropdown-wrapper,
+.rtl .btn-group a,
+.rtl .input-list li label,
+.rtl input[type="checkbox"],
+.rtl input[type="radio"],
+.rtl .navigation-bar header h1,
+  float: right !important !important !important;
+}
